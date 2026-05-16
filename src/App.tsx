@@ -6,6 +6,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import portfolioPdf from './assets/images/portfolio.pdf';
+import sotonPdf from './assets/images/resume.pdf';
 import { 
   ArrowUpRight, 
   Linkedin, 
@@ -20,7 +21,9 @@ import {
   Trophy,
   X,
   MessageCircle,
-  MessageSquare
+  MessageSquare,
+  Copy,
+  Check
 } from 'lucide-react';
 import { 
   PERSONAL_INFO, 
@@ -44,6 +47,14 @@ export default function App() {
   const [activeFilter, setActiveFilter] = useState('All');
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedGallery, setSelectedGallery] = useState<typeof VISUAL_PORTFOLIO[0] | null>(null);
+  const [activeSocial, setActiveSocial] = useState<'wechat' | 'qq' | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -100,7 +111,7 @@ export default function App() {
                 <p className="text-brand-muted max-w-2xl mx-auto">{selectedGallery.description[lang]}</p>
               </div>
 
-              <div className={`gap-8 px-4 ${selectedGallery.id === 'others' ? 'flex flex-col items-center overflow-y-auto max-h-[85vh] py-8 custom-scrollbar' : 'flex overflow-x-auto pb-12 snap-x no-scrollbar'}`}>
+                      <div className={`gap-8 px-4 ${selectedGallery.id === 'others' ? 'flex flex-col items-center overflow-y-auto max-h-[85vh] py-8 custom-scrollbar' : 'flex overflow-x-auto pb-12 snap-x no-scrollbar'}`}>
                 {selectedGallery.id === 'others' && (
                   <motion.div 
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -590,24 +601,99 @@ export default function App() {
                 <span className="text-2xl md:text-4xl font-light tracking-tight group-hover:italic transition-all">{PERSONAL_INFO.email}</span>
               </a>
 
-              <div className="flex gap-16 mt-12">
+              <div className="flex gap-16 mt-12 relative">
                 {[
-                  { icon: MessageCircle, label: t.labels.wechat },
-                  { icon: MessageSquare, label: t.labels.qq },
-                  { icon: ArrowUpRight, label: lang === 'zh' ? "简历" : "Resume" }
+                  { id: 'wechat', icon: MessageCircle, label: t.labels.wechat },
+                  { id: 'qq', icon: MessageSquare, label: t.labels.qq },
+                  { id: 'resume', icon: ArrowUpRight, label: lang === 'zh' ? "简历" : "Resume", link: sotonPdf }
                 ].map((social, i) => (
-                  <motion.button
+                  <motion.div
                     key={i}
                     whileHover={{ y: -10 }}
                     transition={{ type: "spring", stiffness: 400, damping: 10 }}
                     className="flex flex-col items-center gap-3 group"
                   >
-                    <div className="p-4 rounded-full border border-white/5 group-hover:border-brand-accent/50 group-hover:text-brand-accent transition-all duration-300">
-                      <social.icon size={24} strokeWidth={1} />
-                    </div>
+                    {social.id === 'resume' ? (
+                      <a 
+                        href={social.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-4 rounded-full border border-white/5 group-hover:border-brand-accent/50 group-hover:text-brand-accent transition-all duration-300"
+                      >
+                        <social.icon size={24} strokeWidth={1} />
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => setActiveSocial(social.id as 'wechat' | 'qq')}
+                        className="p-4 rounded-full border border-white/5 group-hover:border-brand-accent/50 group-hover:text-brand-accent transition-all duration-300"
+                      >
+                        <social.icon size={24} strokeWidth={1} />
+                      </button>
+                    )}
                     <span className="text-[10px] uppercase tracking-[0.3em] font-bold opacity-30 group-hover:opacity-100 group-hover:text-brand-accent transition-all">{social.label}</span>
-                  </motion.button>
+                  </motion.div>
                 ))}
+
+                {/* Glassmorphic Popover */}
+                <AnimatePresence>
+                  {activeSocial && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                      animate={{ opacity: 1, scale: 1, y: -20 }}
+                      exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-8 z-[150] w-64 p-6 bg-white/5 backdrop-blur-3xl border border-white/20 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] flex flex-col items-center gap-6"
+                    >
+                      <button 
+                        onClick={() => setActiveSocial(null)}
+                        className="absolute top-4 right-4 text-white/30 hover:text-white transition-colors"
+                      >
+                        <X size={16} />
+                      </button>
+
+                      <div className="w-40 h-40 bg-white/5 rounded-2xl border border-white/10 p-2 overflow-hidden">
+                        <img 
+                          src={activeSocial === 'wechat' ? PERSONAL_INFO.wechatQr : PERSONAL_INFO.qqQr} 
+                          alt="QR Code" 
+                          className="w-full h-full object-cover rounded-xl"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+
+                      <div className="w-full space-y-4">
+                        <div className="text-center">
+                          <p className="text-[9px] uppercase tracking-widest text-brand-muted mb-1">
+                            {activeSocial === 'wechat' ? 'WeChat ID' : 'QQ Number'}
+                          </p>
+                          <p className="text-xl font-serif">
+                            {activeSocial === 'wechat' ? PERSONAL_INFO.wechatAccount : PERSONAL_INFO.qqAccount}
+                          </p>
+                        </div>
+
+                        <button
+                          onClick={() => handleCopy(activeSocial === 'wechat' ? PERSONAL_INFO.wechatAccount : PERSONAL_INFO.qqAccount)}
+                          className={`w-full py-3 rounded-xl flex items-center justify-center gap-2 transition-all duration-500 text-[10px] uppercase font-bold tracking-widest ${
+                            copied ? 'bg-brand-accent text-brand-bg' : 'bg-white/10 hover:bg-white/20 text-white border border-white/10'
+                          }`}
+                        >
+                          {copied ? (
+                            <>
+                              <Check size={14} />
+                              {lang === 'zh' ? '已复制' : 'Copied'}
+                            </>
+                          ) : (
+                            <>
+                              <Copy size={14} />
+                              {lang === 'zh' ? '复制账号' : 'Copy ID'}
+                            </>
+                          )}
+                        </button>
+                      </div>
+
+                      {/* Pointer */}
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 w-4 h-4 bg-white/5 backdrop-blur-3xl border-r border-b border-white/20 rotate-45 -mt-2" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           </motion.div>

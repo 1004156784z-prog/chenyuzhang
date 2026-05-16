@@ -13,6 +13,8 @@ import redMain from './assets/images/regenerated_image_1778842772000.png';
 import red1 from './assets/images/regenerated_image_1778844564173.png';
 import red2 from './assets/images/regenerated_image_1778844565764.png';
 import othersMain from './assets/images/regenerated_image_1778842780090.png';
+import wechatQr from './assets/images/wechat_qr.jpg';
+import qqQr from './assets/images/regenerated_image_1778921258917.jpg';
 
 export const PERSONAL_INFO = {
   name: "Zhang Chenyu",
@@ -27,6 +29,10 @@ export const PERSONAL_INFO = {
   },
   email: "chenyu25f@163.com",
   phone: "15293101724",
+  wechatAccount: "Zcy_1017_",
+  qqAccount: "1004156784",
+  wechatQr: wechatQr,
+  qqQr: qqQr,
   social: {
     douyin: "1.7w followers",
     netease: "2w followers",
@@ -82,7 +88,7 @@ export const EXPERIENCE = [
   {
     role: { en: "Interaction Design Assistant", zh: "交互设计项目助理" },
     company: { en: "IBM Interaction Design Lab", zh: "IBM 交互设计项目组" },
-    period: "2024.07 - Present",
+    period: "2024.07 - 2024.09",
     description: {
       en: "Conducted 50+ user interviews and persona analysis. Optimized UI/UX for product functional mapping and contributed to team delivery.",
       zh: "完成50+用户访谈与用户画像分析；协助UI界面优化与产品功能梳理，参与版本需求沟通与项目推进。"
