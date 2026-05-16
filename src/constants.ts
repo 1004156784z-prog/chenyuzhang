@@ -153,11 +153,11 @@ export const VISUAL_PORTFOLIO = [
     id: "douyin",
     category: "Douyin",
     title: { en: "Douyin Profile", zh: "抖音主页" },
-    mainImage: "input_file_25.png",
+    mainImage: "/src/assets/images/regenerated_image_1778842761526.jpg",
     images: [
-      "input_file_25.png",
-      "input_file_25.png",
-      "input_file_26.png"
+      "/src/assets/images/regenerated_image_1778842761526.jpg",
+      "/src/assets/images/regenerated_image_1778844224887.png",
+      "/src/assets/images/regenerated_image_1778844226665.png"
     ],
     description: { en: "1.7w+ Followers | Music & Growth Strategy", zh: "1.7w+ 粉丝 | 音乐内容增长策略" }
   },
@@ -165,11 +165,11 @@ export const VISUAL_PORTFOLIO = [
     id: "netease",
     category: "NetEase",
     title: { en: "NetEase Cloud Music", zh: "网易云主页" },
-    mainImage: "input_file_23.png",
+    mainImage: "/src/assets/images/regenerated_image_1778842770168.jpg",
     images: [
-      "input_file_23.png",
-      "input_file_23.png",
-      "input_file_24.png"
+      "/src/assets/images/regenerated_image_1778842770168.jpg",
+      "/src/assets/images/regenerated_image_1778844394589.png",
+      "/src/assets/images/regenerated_image_1778844396020.png"
     ],
     description: { en: "2w+ Followers | Original Music Distribution", zh: "2w+ 粉丝 | 原创音乐传播矩阵" }
   },
@@ -177,11 +177,11 @@ export const VISUAL_PORTFOLIO = [
     id: "red",
     category: "Xiaohongshu",
     title: { en: "Xiaohongshu Status", zh: "小红书主页" },
-    mainImage: "input_file_28.png",
+    mainImage: "/src/assets/images/regenerated_image_1778842772000.png",
     images: [
-      "input_file_28.png",
-      "input_file_28.png",
-      "input_file_27.png"
+      "/src/assets/images/regenerated_image_1778842772000.png",
+      "/src/assets/images/regenerated_image_1778844564173.png",
+      "/src/assets/images/regenerated_image_1778844565764.png"
     ],
     description: { en: "Lifestyle Curator | Interaction & Visual Design", zh: "生活方式博主 | 交互与视觉设计呈现" }
   },
@@ -189,32 +189,8 @@ export const VISUAL_PORTFOLIO = [
     id: "others",
     category: "Others",
     title: { en: "Other Design Works", zh: "其他设计作品" },
-    mainImage: "input_file_0.png",
-    images: [
-      "input_file_0.png",
-      "input_file_1.png",
-      "input_file_2.png",
-      "input_file_3.png",
-      "input_file_4.png",
-      "input_file_5.png",
-      "input_file_6.png",
-      "input_file_7.png",
-      "input_file_8.png",
-      "input_file_9.png",
-      "input_file_10.png",
-      "input_file_11.png",
-      "input_file_12.png",
-      "input_file_13.png",
-      "input_file_14.png",
-      "input_file_15.png",
-      "input_file_16.png",
-      "input_file_17.png",
-      "input_file_18.png",
-      "input_file_19.png",
-      "input_file_20.png",
-      "input_file_21.png",
-      "input_file_22.png"
-    ],
+    mainImage: "/src/assets/images/regenerated_image_1778842780090.png",
+    images: [],
     description: { en: "Branding, Typography and UI/UX Explorations", zh: "品牌视觉、排版设计与 UI/UX 探索" }
   }
 ];

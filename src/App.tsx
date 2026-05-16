@@ -99,7 +99,43 @@ export default function App() {
                 <p className="text-brand-muted max-w-2xl mx-auto">{selectedGallery.description[lang]}</p>
               </div>
 
-              <div className={`gap-8 px-4 ${selectedGallery.id === 'others' ? 'flex flex-col overflow-y-auto max-h-[60vh] py-8 custom-scrollbar' : 'flex overflow-x-auto pb-12 snap-x no-scrollbar'}`}>
+              <div className={`gap-8 px-4 ${selectedGallery.id === 'others' ? 'flex flex-col items-center overflow-y-auto max-h-[85vh] py-8 custom-scrollbar' : 'flex overflow-x-auto pb-12 snap-x no-scrollbar'}`}>
+                {selectedGallery.id === 'others' && (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="mb-16 w-full max-w-2xl"
+                  >
+                    <a 
+                      href="/src/assets/images/portfolio.pdf" 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative flex items-center justify-between p-10 rounded-[2.5rem] bg-white/5 backdrop-blur-3xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-700 hover:bg-white/10 hover:border-brand-accent/50 hover:shadow-brand-accent/10"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-r from-brand-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                      <div className="relative z-10 flex items-center gap-8">
+                        <div className="w-20 h-20 rounded-3xl bg-brand-accent/10 border border-brand-accent/20 flex items-center justify-center group-hover:bg-brand-accent group-hover:text-brand-bg group-hover:rotate-12 transition-all duration-700 shadow-xl">
+                          <ArrowUpRight size={40} />
+                        </div>
+                        <div className="text-left">
+                          <h4 className="text-3xl font-serif italic mb-2 tracking-tight">
+                            {lang === 'zh' ? '作品集 PDF 原件' : 'Curriculum Vitae / PDF'}
+                          </h4>
+                          <div className="flex items-center gap-3">
+                            <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+                            <p className="text-[11px] uppercase tracking-[0.3em] text-brand-muted font-medium">
+                              {lang === 'zh' ? '完整作品集 / 高清未压缩' : 'Full Portfolio / High Fidelity'}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="relative z-10 text-[11px] uppercase tracking-[0.6em] text-brand-accent opacity-40 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-700 font-bold">
+                        {lang === 'zh' ? '立即探索' : 'Explore Now'}
+                      </div>
+                    </a>
+                  </motion.div>
+                )}
+
                 {selectedGallery.images.map((img, i) => (
                   <motion.div 
                     key={i}
@@ -108,27 +144,31 @@ export default function App() {
                     transition={{ delay: i * 0.05 }}
                     className={`${
                       selectedGallery.id === 'others' 
-                        ? 'w-full aspect-[16/9] mb-8' 
+                        ? 'w-full md:w-[90%] lg:w-[80%] aspect-[16/9] mb-8 last:mb-0' 
                         : 'min-w-[70vw] md:min-w-[320px] aspect-[9/16]'
-                    } bg-brand-neutral overflow-hidden snap-center shadow-2xl relative border border-white/10 rounded-3xl group`}
+                    } bg-brand-neutral overflow-hidden shadow-2xl relative border-[4px] border-[#1a1a1a] rounded-[2rem] group transition-all duration-500 hover:border-brand-accent/40 ring-1 ring-white/10`}
                   >
                     <img 
                       src={img} 
                       alt="" 
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-[1.02]" 
                       referrerPolicy="no-referrer"
                     />
+                    {/* Professional Reflection */}
+                    <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/10 to-transparent pointer-events-none opacity-50" />
                   </motion.div>
                 ))}
               </div>
               
-              <div className="flex justify-center gap-4 mt-8">
-                <div className="w-24 h-px bg-brand-accent/30" />
-                <span className="text-[10px] uppercase tracking-[0.5em] text-brand-muted">
-                  {selectedGallery.id === 'others' ? 'Scroll down to explore' : 'Swipe to explore'}
-                </span>
-                <div className="w-24 h-px bg-brand-accent/30" />
-              </div>
+              {selectedGallery.images.length > 0 && (
+                <div className="flex justify-center gap-4 mt-8">
+                  <div className="w-24 h-px bg-brand-accent/30" />
+                  <span className="text-[10px] uppercase tracking-[0.5em] text-brand-muted">
+                    {selectedGallery.id === 'others' ? 'Scroll down to explore' : 'Swipe to explore'}
+                  </span>
+                  <div className="w-24 h-px bg-brand-accent/30" />
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
