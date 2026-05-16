@@ -150,13 +150,6 @@ export const PORTFOLIO_DOCS = [
     description: { en: "A visual showcase of profile pages across streaming and social platforms.", zh: "核心作品与社交平台主页的视觉呈现。" },
     format: "GALLERY / VISUAL",
     action: { en: "VIEW", zh: "查看" }
-  },
-  {
-    id: "04",
-    title: { en: "Process & Execution", zh: "流程与执行" },
-    description: { en: "Behind-the-scenes methodology breakdown.", zh: "设计方法论与执行流程拆解。" },
-    format: "MP4 / PROCESS",
-    action: { en: "WATCH", zh: "观看" }
   }
 ];
 
