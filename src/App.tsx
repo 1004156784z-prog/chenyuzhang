@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import portfolioPdf from './assets/images/portfolio.pdf';
 import { 
   ArrowUpRight, 
   Linkedin, 
@@ -107,7 +108,7 @@ export default function App() {
                     className="mb-16 w-full max-w-2xl"
                   >
                     <a 
-                      href="/src/assets/images/portfolio.pdf" 
+                      href={portfolioPdf} 
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative flex items-center justify-between p-10 rounded-[2.5rem] bg-white/5 backdrop-blur-3xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-700 hover:bg-white/10 hover:border-brand-accent/50 hover:shadow-brand-accent/10"

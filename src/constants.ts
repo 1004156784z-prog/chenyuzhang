@@ -2,6 +2,18 @@
  * Portfolio Content for Zhang Chenyu (张宸瑜)
  */
 
+import avatarImg from './assets/images/regenerated_image_1778843921236.jpg';
+import douyinMain from './assets/images/regenerated_image_1778842761526.jpg';
+import douyin1 from './assets/images/regenerated_image_1778844224887.png';
+import douyin2 from './assets/images/regenerated_image_1778844226665.png';
+import neteaseMain from './assets/images/regenerated_image_1778842770168.jpg';
+import netease1 from './assets/images/regenerated_image_1778844394589.png';
+import netease2 from './assets/images/regenerated_image_1778844396020.png';
+import redMain from './assets/images/regenerated_image_1778842772000.png';
+import red1 from './assets/images/regenerated_image_1778844564173.png';
+import red2 from './assets/images/regenerated_image_1778844565764.png';
+import othersMain from './assets/images/regenerated_image_1778842780090.png';
+
 export const PERSONAL_INFO = {
   name: "Zhang Chenyu",
   nameZh: "张宸瑜",
@@ -24,7 +36,7 @@ export const PERSONAL_INFO = {
     en: "Specializing in Digital Media, Interaction Design, and New Media Production. Experienced in building 100M+ view original music and content strategy for high-impact platforms.",
     zh: "深耕数字媒体传播、交互设计与新媒体生产。拥有原创音乐单曲播放量破亿的全流运营经验，擅长为高影响力平台制定内容增长策略。"
   },
-  avatar: "/src/assets/images/regenerated_image_1778843921236.jpg",
+  avatar: avatarImg,
 };
 
 export const EDUCATION = [
@@ -153,11 +165,11 @@ export const VISUAL_PORTFOLIO = [
     id: "douyin",
     category: "Douyin",
     title: { en: "Douyin Profile", zh: "抖音主页" },
-    mainImage: "/src/assets/images/regenerated_image_1778842761526.jpg",
+    mainImage: douyinMain,
     images: [
-      "/src/assets/images/regenerated_image_1778842761526.jpg",
-      "/src/assets/images/regenerated_image_1778844224887.png",
-      "/src/assets/images/regenerated_image_1778844226665.png"
+      douyinMain,
+      douyin1,
+      douyin2
     ],
     description: { en: "1.7w+ Followers | Music & Growth Strategy", zh: "1.7w+ 粉丝 | 音乐内容增长策略" }
   },
@@ -165,11 +177,11 @@ export const VISUAL_PORTFOLIO = [
     id: "netease",
     category: "NetEase",
     title: { en: "NetEase Cloud Music", zh: "网易云主页" },
-    mainImage: "/src/assets/images/regenerated_image_1778842770168.jpg",
+    mainImage: neteaseMain,
     images: [
-      "/src/assets/images/regenerated_image_1778842770168.jpg",
-      "/src/assets/images/regenerated_image_1778844394589.png",
-      "/src/assets/images/regenerated_image_1778844396020.png"
+      neteaseMain,
+      netease1,
+      netease2
     ],
     description: { en: "2w+ Followers | Original Music Distribution", zh: "2w+ 粉丝 | 原创音乐传播矩阵" }
   },
@@ -177,11 +189,11 @@ export const VISUAL_PORTFOLIO = [
     id: "red",
     category: "Xiaohongshu",
     title: { en: "Xiaohongshu Status", zh: "小红书主页" },
-    mainImage: "/src/assets/images/regenerated_image_1778842772000.png",
+    mainImage: redMain,
     images: [
-      "/src/assets/images/regenerated_image_1778842772000.png",
-      "/src/assets/images/regenerated_image_1778844564173.png",
-      "/src/assets/images/regenerated_image_1778844565764.png"
+      redMain,
+      red1,
+      red2
     ],
     description: { en: "Lifestyle Curator | Interaction & Visual Design", zh: "生活方式博主 | 交互与视觉设计呈现" }
   },
@@ -189,7 +201,7 @@ export const VISUAL_PORTFOLIO = [
     id: "others",
     category: "Others",
     title: { en: "Other Design Works", zh: "其他设计作品" },
-    mainImage: "/src/assets/images/regenerated_image_1778842780090.png",
+    mainImage: othersMain,
     images: [],
     description: { en: "Branding, Typography and UI/UX Explorations", zh: "品牌视觉、排版设计与 UI/UX 探索" }
   }
