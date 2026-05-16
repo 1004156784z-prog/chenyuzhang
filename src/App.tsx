@@ -99,23 +99,34 @@ export default function App() {
                 <p className="text-brand-muted max-w-2xl mx-auto">{selectedGallery.description[lang]}</p>
               </div>
 
-              <div className="flex gap-8 overflow-x-auto pb-12 snap-x no-scrollbar px-4">
+              <div className={`gap-8 px-4 ${selectedGallery.id === 'others' ? 'flex flex-col overflow-y-auto max-h-[60vh] py-8 custom-scrollbar' : 'flex overflow-x-auto pb-12 snap-x no-scrollbar'}`}>
                 {selectedGallery.images.map((img, i) => (
                   <motion.div 
                     key={i}
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="min-w-[70vw] md:min-w-[400px] h-auto aspect-[9/16] bg-brand-neutral overflow-hidden snap-center shadow-2xl relative border border-white/5"
+                    initial={{ opacity: 0, [selectedGallery.id === 'others' ? 'y' : 'x']: 50 }}
+                    animate={{ opacity: 1, [selectedGallery.id === 'others' ? 'y' : 'x']: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    className={`${
+                      selectedGallery.id === 'others' 
+                        ? 'w-full aspect-[16/9] mb-8' 
+                        : 'min-w-[70vw] md:min-w-[320px] aspect-[9/16]'
+                    } bg-brand-neutral overflow-hidden snap-center shadow-2xl relative border border-white/10 rounded-3xl group`}
                   >
-                    <img src={img} alt="" className="w-full h-full object-cover transition-all duration-700" />
+                    <img 
+                      src={img} 
+                      alt="" 
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" 
+                      referrerPolicy="no-referrer"
+                    />
                   </motion.div>
                 ))}
               </div>
               
               <div className="flex justify-center gap-4 mt-8">
                 <div className="w-24 h-px bg-brand-accent/30" />
-                <span className="text-[10px] uppercase tracking-[0.5em] text-brand-muted">Swipe to explore</span>
+                <span className="text-[10px] uppercase tracking-[0.5em] text-brand-muted">
+                  {selectedGallery.id === 'others' ? 'Scroll down to explore' : 'Swipe to explore'}
+                </span>
                 <div className="w-24 h-px bg-brand-accent/30" />
               </div>
             </motion.div>

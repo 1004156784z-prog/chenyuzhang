@@ -153,11 +153,11 @@ export const VISUAL_PORTFOLIO = [
     id: "douyin",
     category: "Douyin",
     title: { en: "Douyin Profile", zh: "抖音主页" },
-    mainImage: "/src/assets/images/regenerated_image_1778842761526.jpg",
+    mainImage: "input_file_25.png",
     images: [
-      "/src/assets/images/regenerated_image_1778842761526.jpg",
-      "/src/assets/images/img_9435.png",
-      "/src/assets/images/img_9438.png"
+      "input_file_25.png",
+      "input_file_25.png",
+      "input_file_26.png"
     ],
     description: { en: "1.7w+ Followers | Music & Growth Strategy", zh: "1.7w+ 粉丝 | 音乐内容增长策略" }
   },
@@ -165,11 +165,11 @@ export const VISUAL_PORTFOLIO = [
     id: "netease",
     category: "NetEase",
     title: { en: "NetEase Cloud Music", zh: "网易云主页" },
-    mainImage: "/src/assets/images/regenerated_image_1778842770168.jpg",
+    mainImage: "input_file_23.png",
     images: [
-      "/src/assets/images/regenerated_image_1778842770168.jpg",
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80&w=1200"
+      "input_file_23.png",
+      "input_file_23.png",
+      "input_file_24.png"
     ],
     description: { en: "2w+ Followers | Original Music Distribution", zh: "2w+ 粉丝 | 原创音乐传播矩阵" }
   },
@@ -177,11 +177,11 @@ export const VISUAL_PORTFOLIO = [
     id: "red",
     category: "Xiaohongshu",
     title: { en: "Xiaohongshu Status", zh: "小红书主页" },
-    mainImage: "/src/assets/images/regenerated_image_1778842772000.png",
+    mainImage: "input_file_28.png",
     images: [
-      "/src/assets/images/regenerated_image_1778842772000.png",
-      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=1200"
+      "input_file_28.png",
+      "input_file_28.png",
+      "input_file_27.png"
     ],
     description: { en: "Lifestyle Curator | Interaction & Visual Design", zh: "生活方式博主 | 交互与视觉设计呈现" }
   },
@@ -189,11 +189,31 @@ export const VISUAL_PORTFOLIO = [
     id: "others",
     category: "Others",
     title: { en: "Other Design Works", zh: "其他设计作品" },
-    mainImage: "/src/assets/images/regenerated_image_1778842780090.png",
+    mainImage: "input_file_0.png",
     images: [
-      "/src/assets/images/regenerated_image_1778842780090.png",
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=1200",
-      "https://images.unsplash.com/photo-1586717791821-3f44a563fc4c?auto=format&fit=crop&q=80&w=1200"
+      "input_file_0.png",
+      "input_file_1.png",
+      "input_file_2.png",
+      "input_file_3.png",
+      "input_file_4.png",
+      "input_file_5.png",
+      "input_file_6.png",
+      "input_file_7.png",
+      "input_file_8.png",
+      "input_file_9.png",
+      "input_file_10.png",
+      "input_file_11.png",
+      "input_file_12.png",
+      "input_file_13.png",
+      "input_file_14.png",
+      "input_file_15.png",
+      "input_file_16.png",
+      "input_file_17.png",
+      "input_file_18.png",
+      "input_file_19.png",
+      "input_file_20.png",
+      "input_file_21.png",
+      "input_file_22.png"
     ],
     description: { en: "Branding, Typography and UI/UX Explorations", zh: "品牌视觉、排版设计与 UI/UX 探索" }
   }
